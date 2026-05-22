@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <!-- Includes the Mapbox GL JS CSS stylesheet -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.24.0/mapbox-gl.css" rel="stylesheet">
+
+    <!-- Imports the Mapbox GL JS bundle -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.24.0/mapbox-gl.js"></script>
+
+    <!-- Link to the custom CSS file for styling -->   
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+
+    <!-- Top navigation bar -->
+    <header class = "top-nav">
+        <nav class = "nav-links">
+            <a href="/" class="active">Overview</a>
+            <a href="#">Chargers</a>
+            <a href="#">Telemetry</a>
+            <a href="#">Data Logs</a>
+            <a href="#">Market Ops</a>
+        </nav>
+    </header>
+        
+    <!-- Main dashboard area -->
+    <main class="dashboard-main">
+        <section class="map-card">
+
+            <!--Overview summary bar-->
+            <div class="summary-cards">
+                <div class="summary-card">
+                    <p>Total Chargers</p>
+                    <h3 id="total-chargers">0</h3>
+                </div>
+
+                <div class="summary-card available-card">
+                    <p>Available</p>
+                    <h3 id="available-chargers">0</h3>
+                </div>
+
+                <div class="summary-card charging-card">
+                    <p>Charging</p>
+                    <h3 id="charging-chargers">0</h3>
+                </div>
+
+                <div class="summary-card fault-card">
+                    <p>Faults</p>
+                    <h3 id="fault-chargers">0</h3>
+                </div>
+
+                <div class="summary-card">
+                    <p>Total Power</p>
+                    <h3 id="total-power">0.0 kW</h3>
+                </div>
+            </div>
+
+            <div class="map-header">
+                <div>
+                    <h2>Singapore Charger Network</h2>
+                    <p>Interactive map view of EV charger locations and system status.</p>
+                </div>
+
+                <div class="live-status">
+                    <span></span>
+                    Live
+                </div>
+            </div>
+
+            <div id="map"></div>
+
+        </section>
+    </main>
+
+        <script>
+        window.MAPBOX_TOKEN = "{{ mapbox_token }}";
+        </script>
+
+        <!-- Link to the custom JavaScript file for map functionality -->
+        <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+
+
+</body>
+</html>

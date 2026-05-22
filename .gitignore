@@ -1,0 +1,14 @@
+# Environment variables and tokens
+.env
+
+# Python virtual environment
+strides/
+venv/
+.venv/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# VS Code local settings
+.vscode/
